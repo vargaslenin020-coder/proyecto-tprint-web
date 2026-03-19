@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TPRINT</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="animar">
+    <h1>TPRINT</h1>
+    <p>Plasmando tus ideas</p>
+</header>
+
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#productos">Servicios</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#" onclick="verCarrito()">🛒 Carrito (<span id="contador">0</span>)</a>
+    <button onclick="toggleModo()" id="modoBtn">🌙</button>
+</nav>
+
+<!-- INICIO -->
+<section class="hero animar" id="inicio">
+    <h2>Impresión & personalizados</h2>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="animar">
+    <h2>Sobre Nosotros</h2>
+
+    <div class="features">
+        <div class="feature-item animar">🎨 Impresión & personalizados en Quito</div>
+        <div class="feature-item animar">🎁 Regalos, papelería y marca corporativa</div>
+        <div class="feature-item animar">🚚 Envíos a todo Ecuador</div>
+    </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos">
+    <h2 class="titulo animar">Nuestros Productos</h2>
+
+    <div class="grid">
+
+        <div class="card animar">
+            <img src="images/camiseta.jpg">
+            <h3>Camiseta personalizada</h3>
+            <p>$10</p>
+            <button onclick="agregarCarrito('Camiseta', 10)">Agregar al carrito</button>
+        </div>
+
+        <div class="card animar">
+            <img src="images/taza.jpg">
+            <h3>Taza personalizada</h3>
+            <p>$5</p>
+            <button onclick="agregarCarrito('Taza', 5)">Agregar al carrito</button>
+        </div>
+
+        <div class="card animar">
+            <img src="images/libreta.jpg">
+            <h3>Libreta personalizada</h3>
+            <p>$7</p>
+            <button onclick="agregarCarrito('Libreta', 7)">Agregar al carrito</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="animar">
+    <h2>Contacto</h2>
+
+    <div class="contacto-container">
+
+        <div class="contacto-info">
+            <p>📍 Quito - Ecuador</p>
+            <p>📞 +593 98 775 2653</p>
+            <p>✉️ tprint@gmail.com</p>
+        </div>
+
+        <div class="contacto-botones">
+    <a href="https://wa.me/593987752653" target="_blank" class="btn-whatsapp">
+        💬 Escribir por WhatsApp
+    </a>
+
+    <a href="mailto:tprint@gmail.com" class="btn-email">
+        📧 Enviar correo
+    </a>
+
+    <a href="https://www.google.com/maps/dir/?api=1&destination=-0.1272952,-78.4451921" 
+       target="_blank" 
+       class="btn-mapa">
+       📍 Cómo llegar
+    </a>
+</div>
+
+        <!-- MAPA -->
+        <!-- MAPA -->
+<div class="mapa">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.808473393062!2d-78.4451921!3d-0.1272952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMDcnMzguMyJTIDc4wrAyNic0Mi43Ilc!5e0!3m2!1ses!2sec!4v1773955648173!5m2!1ses!2sec"
+        width="100%" 
+        height="300" 
+        style="border:0; border-radius:15px;" 
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+</div>
+
+    </div>
+</section>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/593987752653" class="whatsapp" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="50">
+</a>
+
+<script>
+
+/* 🔥 MENÚ ACTIVO */
+const secciones = document.querySelectorAll("section");
+const links = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    secciones.forEach(sec => {
+        const top = window.scrollY;
+        const offset = sec.offsetTop - 150;
+        const height = sec.offsetHeight;
+
+        if (top >= offset && top < offset + height) {
+            current = sec.getAttribute("id");
+        }
+    });
+
+    links.forEach(link => {
+        link.classList.remove("activo");
+
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("activo");
+        }
+    });
+});
+
+
+/* 🔥 SCROLL AUTOMÁTICO */
+let bloqueado = false;
+
+window.addEventListener("wheel", function(e) {
+    if (bloqueado) return;
+    bloqueado = true;
+
+    let direccion = e.deltaY > 0 ? 1 : -1;
+
+    window.scrollBy({
+        top: direccion * window.innerHeight,
+        behavior: "smooth"
+    });
+
+    setTimeout(() => {
+        bloqueado = false;
+    }, 800);
+});
+
+
+/* 🛒 CARRITO */
+let carrito = [];
+
+function agregarCarrito(nombre, precio) {
+    carrito.push({nombre, precio});
+    document.getElementById("contador").innerText = carrito.length;
+    alert(nombre + " agregado al carrito");
+}
+
+function verCarrito() {
+    if (carrito.length === 0) {
+        alert("Carrito vacío");
+        return;
+    }
+
+    let mensaje = "Hola, quiero comprar:%0A";
+
+    carrito.forEach(item => {
+        mensaje += "- " + item.nombre + " ($" + item.precio + ")%0A";
+    });
+
+    let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+
+    mensaje += "%0ATotal: $" + total;
+
+    window.open("https://wa.me/593987752653?text=" + mensaje);
+}
+
+
+/* ✨ ANIMACIONES */
+const elementos = document.querySelectorAll(".animar");
+
+function mostrarElementos() {
+    elementos.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+
+        if (top < window.innerHeight - 100) {
+            el.classList.add("visible");
+        }
+    });
+}
+
+window.addEventListener("scroll", mostrarElementos);
+window.addEventListener("load", mostrarElementos);
+
+
+/* 🌙 MODO OSCURO */
+function toggleModo() {
+    document.body.classList.toggle("dark");
+
+    let btn = document.getElementById("modoBtn");
+
+    if (document.body.classList.contains("dark")) {
+        btn.innerText = "☀️";
+        localStorage.setItem("modo", "oscuro");
+    } else {
+        btn.innerText = "🌙";
+        localStorage.setItem("modo", "claro");
+    }
+}
+
+window.addEventListener("load", () => {
+    let modoGuardado = localStorage.getItem("modo");
+    let btn = document.getElementById("modoBtn");
+
+    if (modoGuardado === "oscuro") {
+        document.body.classList.add("dark");
+        btn.innerText = "☀️";
+    }
+});
+
+</script>
+
+</body>
+</html>

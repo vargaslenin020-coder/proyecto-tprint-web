@@ -1,0 +1,325 @@
+/* SCROLL SUAVE */
+html {
+    scroll-behavior: smooth;
+}
+
+/* BODY */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)),
+                url("images/TPrint-logo.png") no-repeat center;
+
+    background-size: 400px;
+    background-attachment: fixed;
+
+    transition: 0.3s;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(45deg, #ff4fa3, #4ecbfa);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+/* NAV */
+nav {
+    background: #1a1a1a;
+    text-align: center;
+    padding: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+/* EFECTO SUBRAYADO */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ff4fa3;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* SECCIONES */
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    scroll-margin-top: 80px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+}
+
+/* TITULO */
+.titulo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* GRID */
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* TARJETAS */
+.card {
+    width: 220px;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+/* IMÁGENES */
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* BOTONES */
+button {
+    background: linear-gradient(45deg, #ff4fa3, #ff7ac6);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.whatsapp img {
+    border-radius: 50%;
+    width: 55px;
+    animation: latido 1.5s infinite;
+}
+
+/* ANIMACIÓN LATIDO */
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* FOOTER */
+footer {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* LINK ACTIVO */
+nav a.activo {
+    color: #ff4fa3;
+    font-weight: bold;
+}
+
+nav a.activo::after {
+    width: 100%;
+}
+
+/* ANIMACIONES */
+.animar {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+
+.animar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card.animar:nth-child(1) { transition-delay: 0.1s; }
+.card.animar:nth-child(2) { transition-delay: 0.3s; }
+.card.animar:nth-child(3) { transition-delay: 0.5s; }
+
+/* 🌙 MODO OSCURO PRO (CORREGIDO) */
+.dark {
+    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)),
+                url("images/TPrint-logo.png") no-repeat center;
+
+    background-size: 500px;
+    background-attachment: fixed;
+    color: #f1f1f1;
+}
+
+.dark header {
+    background: linear-gradient(45deg, #ff4fa3, #4ecbfa);
+    box-shadow: 0 5px 20px rgba(255, 79, 163, 0.4);
+}
+
+.dark nav {
+    background: #000;
+}
+
+.dark nav a {
+    color: #ddd;
+}
+
+.dark .card {
+    background: #1e1e1e;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+}
+
+.dark .card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(255,255,255,0.2);
+}
+
+.dark button {
+    background: linear-gradient(45deg, #ff4fa3, #ff7ac6);
+}
+
+.dark footer {
+    background: #000;
+}
+
+.dark .whatsapp img {
+    filter: brightness(1.2);
+}
+.info {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.info p {
+    margin: 10px 0;
+}
+/* CONTENEDOR */
+.contacto-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* INFO */
+.contacto-info p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* BOTONES */
+.contacto-botones {
+    margin-top: 20px;
+}
+
+/* WHATSAPP */
+.btn-whatsapp {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.1);
+}
+
+/* EMAIL */
+.btn-email {
+    display: inline-block;
+    background: #ff4fa3;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-email:hover {
+    transform: scale(1.1);
+}
+
+/* MODO OSCURO */
+.dark .contacto-info {
+    color: #ddd;
+}
+.mapa {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* sombra elegante */
+.mapa iframe {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* modo oscuro */
+.dark .mapa iframe {
+    filter: grayscale(0.3) brightness(0.8);
+}
+.btn-mapa {
+    display: inline-block;
+    background: #4285F4;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-mapa:hover {
+    transform: scale(1.1);
+    background: #2a6adf;
+}
+
+/* modo oscuro */
+.dark .btn-mapa {
+    background: #2a6adf;
+}
