@@ -35,21 +35,21 @@
 
     <!-- CARRITO FLOTANTE -->
     <div id="carritoPanel" class="carrito-panel">
-    <div class="carrito-header" style="display: flex; justify-content: space-between; align-items: center;">
-        <h3>Tu Pedido</h3>
-        <button onclick="toggleCarrito()" style="background:none; color:#333; font-size: 2rem; padding:0;">&times;</button>
-    </div>
-    <ul id="listaCarrito">
-        <!-- Los productos con botón de eliminar aparecerán aquí dinámicamente -->
-    </ul>
-    <div class="carrito-footer">
-        <div class="total-box">
-            <span>Total:</span>
-            <span id="total">$0.00</span>
+        <div class="carrito-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <h3>Tu Pedido</h3>
+            <button onclick="toggleCarrito()" style="background:none; color:#333; font-size: 2rem; padding:0;">&times;</button>
         </div>
-        <button onclick="enviarWhatsApp()" class="btn-ws" style="width: 100%;">Pedir por WhatsApp</button>
+        <ul id="listaCarrito">
+            <!-- Los productos con botón de eliminar aparecerán aquí dinámicamente -->
+        </ul>
+        <div class="carrito-footer">
+            <div class="total-box">
+                <span>Total:</span>
+                <span id="total">$0.00</span>
+            </div>
+            <button onclick="enviarWhatsApp()" class="btn-ws" style="width: 100%;">Pedir por WhatsApp</button>
+        </div>
     </div>
-</div>
 
     <main>
         <section id="inicio" class="section hero">
@@ -102,6 +102,14 @@
             <p>📍 Quito, Ecuador | 📞 +593 98 775 2653</p>
             <div class="map-box">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.808473393062!2d-78.4451921!3d-0.1272952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMDcnMzguMyJTIDc4wrAyNic0Mi43Ilc!5e0!3m2!1ses!2sec!4v1773955648173!5m2!1ses!2sec" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <!-- BOTÓN CÓMO LLEGAR -->
+            <div class="map-actions">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=-0.1272952,-78.4451921" 
+                   target="_blank" 
+                   class="btn-maps">
+                    <i class="fas fa-map-marker-alt"></i> Cómo llegar
+                </a>
             </div>
         </section>
     </main>
