@@ -82,9 +82,9 @@ function actualizarInterfaz() {
 function enviarWhatsApp() {
     if (carrito.length === 0) return alert("¡Ups! El carrito está vacío.");
     
-    let msg = "¡Hola TPRINT! 👋 Quisiera realizar un pedido:%0A%0A";
+    let msg = "¡Hola TPRINT! Quisiera realizar un pedido:%0A%0A";
     carrito.forEach((i, index) => msg += `${index+1}. *${i.nombre}* ($${i.precio.toFixed(2)})%0A`);
-    msg += `%0A*Total estimado: ${totalUI.innerText}*%0A%0A¿Cuáles son los pasos para el diseño? ✨`;
+    msg += `%0A*Total estimado: ${totalUI.innerText}*%0A%0A¿Cuáles son los pasos para el diseño? `;
     
     window.open(`https://wa.me/593987752653?text=${msg}`, '_blank');
 }
