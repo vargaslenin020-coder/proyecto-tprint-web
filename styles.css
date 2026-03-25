@@ -1,5 +1,5 @@
 :root {
-    --primary: #ff4fa3;
+    --primary: #ff8ec2;
     --primary-light: #ff8ec2;
     --secondary: #4ecbfa;
     --dark: #0f172a;
@@ -53,8 +53,8 @@ body.fade-in { animation: fadeInMain 0.8s ease-out forwards; }
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, rgba(255, 79, 163, 0.9), rgba(78, 203, 250, 0.85));
-    z-index: -1;
+    background: linear-gradient(135deg, rgba(235, 121, 176, 0.9));
+    z-index: -1;    
 }
 
 .hero-content {
@@ -77,10 +77,10 @@ body.fade-in { animation: fadeInMain 0.8s ease-out forwards; }
     margin-bottom: 25px;
 }
 .header-logo { 
-    max-width: 180px; /* Tamaño aumentado para que resalte más */
+    max-width: 280px; 
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); /* Opcional: le da un toque de profundidad */
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
 }
 
 .hero-title {
@@ -116,6 +116,7 @@ body.fade-in { animation: fadeInMain 0.8s ease-out forwards; }
     background-color: var(--primary);
 }
 
+/* NAVEGACIÓN */
 nav {
     background: var(--glass);
     backdrop-filter: blur(12px);
@@ -132,6 +133,7 @@ nav {
 .nav-links a { margin-left: 18px; text-decoration: none; color: #475569; font-weight: 600; font-size: 0.8rem; }
 .cart-trigger { background: #f1f5f9; border: none; padding: 9px 13px; border-radius: 10px; cursor: pointer; position: relative; }
 
+/* SECCIONES */
 .section { padding: 70px 5%; text-align: center; }
 .container-small { background: white; padding: 35px; border-radius: 30px; box-shadow: var(--shadow); max-width: 850px; margin: auto; }
 .section-title { color: var(--primary); margin-bottom: 25px; font-size: 1.8rem; font-weight: 700; }
@@ -140,6 +142,7 @@ nav {
 .mv-icon { font-size: 1.4rem; color: var(--primary); margin-bottom: 8px; }
 .diferenciacion-box { background: linear-gradient(to right, #fff9fb, #f5fcff); padding: 25px; border-radius: 20px; margin-bottom: 35px; border: 1px dashed rgba(255, 79, 163, 0.4); }
 
+/* SOCIAL MEDIA */
 .social-container { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-top: 20px; }
 .social-card { display: flex; align-items: center; gap: 10px; padding: 10px 22px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.88rem; transition: 0.3s; }
 .social-icon { width: 33px; height: 33px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: white; }
@@ -151,6 +154,7 @@ nav {
 .tk { background: #000; color: white; }
 .tk .social-icon i { color: #000; }
 
+/* CATÁLOGO */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 28px; width: 90%; max-width: 1200px; margin: 28px auto 0 auto; }
 .card { background: #fff; border-radius: 22px; padding: 20px; border: 1px solid #f1f5f9; text-align: center; transition: 0.3s; }
 .card-img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
@@ -158,15 +162,25 @@ nav {
 .btn-add { width: 100%; padding: 12px; border-radius: 12px; border: none; background: var(--dark); color: white; font-weight: 600; cursor: pointer; transition: 0.3s; }
 .btn-add:hover { background: var(--primary); }
 
-.payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 28px; }
-.payment-card { padding: 25px 15px; border-radius: 20px; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow); }
+/* SECCIÓN PAGOS ACTUALIZADA */
+.payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; margin-top: 28px; }
+.payment-card { padding: 25px 15px; border-radius: 20px; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow); transition: 0.3s; border-bottom: 4px solid transparent; }
 .payment-logo { height: 40px; object-fit: contain; margin-bottom: 10px; }
 .payment-icon-circle { width: 45px; height: 45px; background: var(--green); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 10px; }
 .payment-tag { background: #f1f5f9; color: #64748b; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; }
 
+/* Colores de Borde por Banco */
+.pichincha-bg { border-bottom-color: #ffdd00; }
+.guayaquil-bg { border-bottom-color: #ff00ff; }
+.produbanco-bg { border-bottom-color: #00a859; }
+.deuna-bg { border-bottom-color: #00cfb4; }
+.efectivo-bg { border-bottom-color: var(--green); }
+
+/* MAPA */
 .map-container { border-radius: 25px; overflow: hidden; height: 380px; margin: 28px 0; border: 4px solid #fff; box-shadow: var(--shadow); }
 .btn-maps { display: inline-flex; align-items: center; gap: 10px; padding: 15px 35px; background: var(--primary); color: white; border-radius: 18px; text-decoration: none; font-weight: 700; }
 
+/* CARRITO */
 .carrito-panel { position: fixed; top: 0; right: -100%; width: 350px; height: 100%; background: white; z-index: 2000; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; box-shadow: -15px 0 40px rgba(0,0,0,0.1); }
 .carrito-panel.activo { right: 0; }
 .carrito-header { padding: 25px; background: #f8fafc; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; }
@@ -178,10 +192,12 @@ nav {
 .btn-whatsapp { width: 100%; padding: 16px; border-radius: 15px; border: none; background: var(--green); color: white; font-size: 1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; transition: 0.3s; }
 .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; z-index: 1000; box-shadow: 2px 2px 12px rgba(0,0,0,0.1); }
 
+/* RESPONSIVO */
 @media (max-width: 600px) {
     .nav-links { display: none; }
     .mision-vision-grid, .grid { grid-template-columns: 1fr; }
     .hero-title { font-size: 1.8rem; }
     .hero-slogan { font-size: 0.9rem; }
     .carrito-panel { width: 100%; }
+    .payment-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
 }
