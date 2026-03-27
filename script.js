@@ -91,3 +91,32 @@ function enviarWhatsApp() {
 
 // Asegurar que el body aparezca después de cargar (opcional)
 window.onload = () => { document.body.style.opacity = '1'; };
+// Seleccionamos todos los enlaces del menú y las secciones
+const secciones = document.querySelectorAll('section');
+const linksNav = document.querySelectorAll('.nav-links a');
+
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.6 // 60% de la sección debe estar visible
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            // Quitamos la clase active de todos los links
+            linksNav.forEach((link) => {
+                link.classList.remove('active');
+                // Si el href del link coincide con el id de la sección visible
+                if (link.getAttribute('href') === `#${entry.target.id}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+}, observerOptions);
+
+// Le decimos al observador que vigile cada sección
+secciones.forEach((seccion) => {
+    observer.observe(seccion);
+});
